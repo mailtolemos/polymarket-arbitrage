@@ -1,0 +1,15 @@
+# Don't ship the demo media or local logs into the Railway image.
+Polymarket-Arb-clip.mp4
+*.png
+logs/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+.env
+.env.*
+.git/
+.DS_Store
