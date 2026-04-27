@@ -20,10 +20,10 @@ COPY . .
 # Create the logs directory the bot writes to.
 RUN mkdir -p /app/logs
 
-# Railway injects $PORT at runtime; default to 8888 for local docker runs.
-ENV PORT=8888
-EXPOSE 8888
+# Railway injects $PORT at runtime; default to 8080 for local docker runs.
+ENV PORT=8080
+EXPOSE 8080
 
-# Use shell form so $PORT expands. The dashboard already binds to 0.0.0.0
-# in run_with_dashboard.py.
-CMD python run_with_dashboard.py --port "${PORT}"
+# start.sh handles $PORT expansion regardless of how the runtime invokes CMD.
+RUN chmod +x /app/start.sh
+CMD ["/app/start.sh"]
